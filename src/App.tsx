@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { ArrowRight, ShieldCheck, Globe, ChevronDown, Menu, X, Download, Loader2 } from 'lucide-react';
 import LiquidityModel from './LiquidityModel';
 import ProfitSimulator from './ProfitSimulator';
@@ -71,9 +72,9 @@ export const AltinusLanding = () => {
   };
 
   // Animation variants
-  const fadeInUp = {
+  const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } }
   };
 
   const staggerContainer = {
