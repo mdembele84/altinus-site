@@ -39,8 +39,8 @@ if (fs.existsSync(DIST_DIR)) {
 app.use('/ressources', express.static(VOLUME_PATH));
 app.use(express.static(DIST_DIR));
 
-// SPA fallback
-app.get('*', (req, res) => {
+// SPA fallback for all remaining routes
+app.use((req, res) => {
   res.sendFile(path.join(DIST_DIR, 'index.html'));
 });
 
