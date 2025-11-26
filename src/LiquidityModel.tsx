@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Repeat, ArrowRightLeft, Banknote, Globe, TrendingUp } from 'lucide-react';
 

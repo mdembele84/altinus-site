@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Calendar, ArrowRight, CheckCircle2, Sparkles, Lock } from 'lucide-react';
 
 const ProfitSimulator = () => {

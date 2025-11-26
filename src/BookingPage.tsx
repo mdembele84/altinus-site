@@ -1,4 +1,3 @@
-import React from 'react';
 import Cal from '@calcom/embed-react';
 import { Phone, Mail, MapPin, Check, ArrowLeft } from 'lucide-react';
 
@@ -89,7 +88,7 @@ const BookingPage = () => {
             namespace="30min"
             calLink="altinus/30min"
             style={{ width: '100%', height: '100%', overflow: 'auto' }}
-            config={{ layout: 'month_view', theme: 'light', hideEventTypeDetails: true }}
+            config={{ layout: 'month_view', theme: 'light', hideEventTypeDetails: 'true' }}
             calOrigin="https://calcom-web-app-production-37c9.up.railway.app"
             embedJsUrl="https://calcom-web-app-production-37c9.up.railway.app/embed/embed.js"
           />
