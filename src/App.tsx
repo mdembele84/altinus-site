@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Variants } from 'framer-motion';
 import { ArrowRight, ShieldCheck, Globe, ChevronDown, Menu, X, Download, Loader2 } from 'lucide-react';
 import LiquidityModel from './LiquidityModel';
 import ProfitSimulator from './ProfitSimulator';
 import BookingPage from './BookingPage';
+
+// --- CONFIGURATION ---
+// Lien direct vers ton logo sur Cloudinary
+const LOGO_URL = "https://res.cloudinary.com/www-danapay-com/image/upload/v1764219903/Logo_Altinus_ejcbsf.png";
+
+// URL DE TON WEBHOOK N8N (À REMPLACER)
+const N8N_WEBHOOK_URL = "https://TON_INSTANCE_N8N/webhook/lead-download";
 
 export const AltinusLanding = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,9 +21,6 @@ export const AltinusLanding = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
-  // URL DE TON WEBHOOK N8N (À REMPLACER)
-  const N8N_WEBHOOK_URL = "https://TON_INSTANCE_N8N/webhook/lead-download";
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -41,7 +44,9 @@ export const AltinusLanding = () => {
         })
       });
 
-      // 2. Déclenchement du téléchargement
+      // 2. Déclenchement du téléchargement du PDF
+      // Note : Si le volume ne marchait pas pour le logo, assure-toi que le PDF est bien
+      // dans public/ressources/ ou héberge-le aussi sur Cloudinary pour être tranquille.
       const link = document.createElement('a');
       link.href = '/ressources/Altinus - Executive Summary - V2.pdf';
       link.download = 'Altinus - Executive Summary - V2.pdf';
@@ -72,9 +77,9 @@ export const AltinusLanding = () => {
   };
 
   // Animation variants
-  const fadeInUp: Variants = {
+  const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
   const staggerContainer = {
@@ -117,8 +122,8 @@ export const AltinusLanding = () => {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="text-center mb-6">
-                    {/* LOGO PNG */}
-                    <img src="/ressources/logo.png" alt="Altinus Logo" className="w-12 h-12 mx-auto mb-4 object-contain" />
+                    {/* LOGO CLOUDINARY MODAL */}
+                    <img src={LOGO_URL} alt="Altinus Logo" className="w-16 h-16 mx-auto mb-4 object-contain" />
                     <h3 className="text-xl font-bold text-white">Accéder à l'Executive Summary</h3>
                     <p className="text-zinc-400 text-sm mt-2">Veuillez renseigner vos informations pour télécharger la brochure officielle.</p>
                   </div>
@@ -180,8 +185,8 @@ export const AltinusLanding = () => {
       {/* --- NAVIGATION --- */}
       <nav className="fixed top-0 w-full z-50 px-6 py-6 flex justify-between items-center border-b border-white/5 bg-zinc-950/80 backdrop-blur-md">
         <div className="flex items-center gap-3">
-            {/* LOGO PNG */}
-            <img src="/ressources/logo.png" alt="Altinus Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
+            {/* LOGO CLOUDINARY NAV */}
+            <img src={LOGO_URL} alt="Altinus Logo" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
             <div className="text-xl md:text-2xl font-bold tracking-tighter uppercase">
               Altinus<span className="text-amber-500">.Club</span>
             </div>
@@ -206,8 +211,8 @@ export const AltinusLanding = () => {
         <div className="z-10 max-w-5xl w-full text-center md:text-left">
           <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="space-y-6">
             <motion.div variants={fadeInUp} className="flex items-center justify-center md:justify-start gap-2">
-                {/* LOGO PNG */}
-                <img src="/ressources/logo.png" alt="Logo" className="w-5 h-5 object-contain" />
+                {/* LOGO CLOUDINARY HERO (Petit) */}
+                <img src={LOGO_URL} alt="Logo" className="w-6 h-6 object-contain" />
                 <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-amber-500 font-bold">
                 Investment Club • 2025
                 </p>
@@ -365,8 +370,8 @@ export const AltinusLanding = () => {
 
       <footer id="contact" className="bg-zinc-950 pt-24 pb-12 px-6 border-t border-white/10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* LOGO PNG FOOTER */}
-          <img src="/ressources/logo.png" alt="Altinus Logo" className="w-16 h-16 mx-auto mb-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 object-contain" />
+          {/* LOGO CLOUDINARY FOOTER */}
+          <img src={LOGO_URL} alt="Altinus Logo" className="w-20 h-20 mx-auto mb-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 object-contain" />
           <h2 className="text-3xl md:text-5xl font-bold mb-8">Prêt à investir autrement ?</h2>
           <p className="text-zinc-400 mb-12 max-w-xl mx-auto">
             Nous cherchons à réunir des investisseurs avertis pour un projet collectif, durable et spirituellement aligné.
@@ -390,7 +395,6 @@ export const AltinusLanding = () => {
     </div>
   );
 };
-
 
 const App = () => {
   return (
