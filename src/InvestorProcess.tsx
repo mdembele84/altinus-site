@@ -167,7 +167,7 @@ const InvestorProcess = () => {
             <div className="p-8 bg-zinc-100 rounded-lg">
                <Shuffle className="w-10 h-10 text-amber-600 mb-4" />
                <h3 className="text-xl font-bold mb-2">Corridor Stratégique</h3>
-               <p className="text-zinc-600 text-sm">Le flux Afrique Centrale -> Ouest est structurellement déséquilibré. La liquidité y vaut de l'or, ce qui justifie nos marges élevées.</p>
+              <p className="text-zinc-600 text-sm">Le flux Afrique Centrale &rarr; Ouest est structurellement déséquilibré. La liquidité y vaut de l'or, ce qui justifie nos marges élevées.</p>
             </div>
             <div className="p-8 bg-zinc-100 rounded-lg">
                <Briefcase className="w-10 h-10 text-amber-600 mb-4" />
