@@ -223,8 +223,8 @@ export const AltinusLanding = () => {
             <motion.h1 variants={fadeInUp} className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9]">
               L'ALLIANCE ENTRE <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">
-                LIQUIDITÉ
-              </span> <br /> & PERFORMANCE.
+                PERFORMANCE
+              </span> <br /> & ETHIQUE.
             </motion.h1>
             <motion.p variants={fadeInUp} className="max-w-xl text-lg md:text-xl text-zinc-400 leading-relaxed pt-4 mx-auto md:mx-0">
               Fournisseur de liquidité B2B pour les opérateurs de transfert d'argent. 
