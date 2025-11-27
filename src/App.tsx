@@ -80,7 +80,7 @@ export const AltinusLanding = () => {
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } }
   };
 
   const staggerContainer = {
@@ -223,12 +223,12 @@ export const AltinusLanding = () => {
             <motion.h1 variants={fadeInUp} className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9]">
               L'ALLIANCE ENTRE <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">
-                PERFORMANCE
-              </span> <br /> & ÉTHIQUE.
+                LIQUIDITÉ
+              </span> <br /> & PERFORMANCE.
             </motion.h1>
             <motion.p variants={fadeInUp} className="max-w-xl text-lg md:text-xl text-zinc-400 leading-relaxed pt-4 mx-auto md:mx-0">
-              Une nouvelle manière d'investir : simple, traçable et moralement responsable. 
-              Adossé à des actifs réels sur le corridor Europe-Afrique.
+              Fournisseur de liquidité B2B pour les opérateurs de transfert d'argent. 
+              Nous fluidifions le corridor stratégique Afrique Centrale → Afrique de l'Ouest.
             </motion.p>
             
             <motion.div variants={fadeInUp} className="pt-8 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
@@ -261,8 +261,8 @@ export const AltinusLanding = () => {
       <div className="border-b border-white/10 bg-zinc-900 overflow-hidden py-4">
         <div className="flex justify-around items-center text-xs md:text-sm tracking-widest uppercase font-mono text-zinc-500">
           <span>• Ticket: 20k€</span>
-          <span className="text-amber-400 font-bold">• Rendement Cible: Jusqu'à 24% / An</span>
-          <span>• Horizon: 12 Mois</span>
+          <span className="text-amber-400 font-bold">• Cible: 24% / An</span>
+          <span>• Modèle: B2B Wholesale</span>
           <span className="hidden md:inline">• Sans Spéculation</span>
         </div>
       </div>
@@ -276,18 +276,18 @@ export const AltinusLanding = () => {
           variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
+          {/* Main Block - B2B Corridor */}
           <motion.div variants={fadeInUp} className="md:col-span-2 bg-zinc-900/50 border border-white/10 p-10 rounded-sm relative overflow-hidden group hover:border-amber-500/30 transition-colors">
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
               <Globe size={120} />
             </div>
-            <h3 className="text-2xl font-bold mb-4">Liquidité Opérationnelle</h3>
+            <h3 className="text-2xl font-bold mb-4">Liquidité B2B Stratégique</h3>
             <p className="text-zinc-400 mb-6 max-w-md">
-              Nous comblons le déséquilibre naturel de liquidité entre l'Europe et l'Afrique. 
-              Altinus agit comme fournisseur de liquidité structuré pour les opérateurs de transfert d'argent.
+              Nous fournissons la trésorerie indispensable aux opérateurs agréés pour exécuter les transferts du corridor <strong>Afrique Centrale vers Afrique de l'Ouest</strong>.
             </p>
             <ul className="space-y-2 text-sm text-zinc-300">
-              <li className="flex items-center gap-2"><div className="w-1 h-1 bg-amber-500"></div>Corridor Afrique Centrale - Afrique de l'Ouest</li>
-              <li className="flex items-center gap-2"><div className="w-1 h-1 bg-amber-500"></div>Fonds rapatriés et réinjectés (rotations rapides)</li>
+              <li className="flex items-center gap-2"><div className="w-1 h-1 bg-amber-500"></div>Liquidité positionnée en Afrique de l'Ouest</li>
+              <li className="flex items-center gap-2"><div className="w-1 h-1 bg-amber-500"></div>Modèle de gros (Wholesale) à forte rotation</li>
             </ul>
           </motion.div>
 
