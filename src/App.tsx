@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ShieldCheck, Globe, ChevronDown, Menu, X, Download, Loader2 } from 'lucide-react';
 import LiquidityModel from './LiquidityModel';
 import ProfitSimulator from './ProfitSimulator';
 import BookingPage from './BookingPage';
+import InvestorProcess from './InvestorProcess';
 
 // --- CONFIGURATION ---
 // Lien direct vers ton logo sur Cloudinary
@@ -196,6 +197,7 @@ export const AltinusLanding = () => {
           <a href="#concept" className="hover:text-amber-400 transition-colors">Le Modèle</a>
           <a href="#ethics" className="hover:text-amber-400 transition-colors">Finance Éthique</a>
           <a href="#simulation" className="hover:text-amber-400 transition-colors">Simulateur</a>
+          <Link to="/notre-methode" className="hover:text-amber-400 transition-colors">Comprendre la Méthode</Link>
         </div>
         <button className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <X /> : <Menu />}
@@ -402,6 +404,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<AltinusLanding />} />
         <Route path="/rendez-vous" element={<BookingPage />} />
+        <Route path="/notre-methode" element={<InvestorProcess />} />
       </Routes>
     </Router>
   );
