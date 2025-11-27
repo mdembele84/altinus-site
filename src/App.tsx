@@ -8,7 +8,7 @@ import BookingPage from './BookingPage';
 
 // --- CONFIGURATION ---
 // Lien direct vers ton logo sur Cloudinary
-const LOGO_URL = "https://res.cloudinary.com/www-danapay-com/image/upload/v1764219903/Logo_Altinus_ejcbsf.png";
+const LOGO_URL = "https://res.cloudinary.com/www-danapay-com/image/upload/v1764220316/Logo_Altinus_hebham.png";
 
 // URL DE TON WEBHOOK N8N (À REMPLACER)
 const N8N_WEBHOOK_URL = "https://TON_INSTANCE_N8N/webhook/lead-download";
