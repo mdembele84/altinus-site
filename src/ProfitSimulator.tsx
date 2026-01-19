@@ -3,7 +3,7 @@ import { Calendar, ArrowRight, CheckCircle2, Sparkles, Lock } from 'lucide-react
 
 const ProfitSimulator = () => {
   const [investment, setInvestment] = useState(20000);
-  const annualRate = 0.24; // 24% cible
+  const annualRate = 0.15; // 15% cible
   const durationYears = 5;
 
   // Seuil de négociation
@@ -38,7 +38,7 @@ const ProfitSimulator = () => {
           <span className="text-amber-500 font-mono text-sm tracking-widest uppercase">Projection Financière</span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6">Simulez vos revenus passifs.</h2>
           <p className="text-zinc-400 max-w-2xl mx-auto">
-            Projetez la croissance de votre patrimoine avec un rendement cible de 24% par an, versé trimestriellement.
+            Projetez la croissance de votre patrimoine avec un rendement cible de 15% par an, versé trimestriellement.
           </p>
         </div>
 
@@ -97,7 +97,7 @@ const ProfitSimulator = () => {
                       <Sparkles size={12} /> Taux négociable & sur-mesure
                     </>
                   ) : (
-                    "24% de rendement cible"
+                    "15% de rendement cible"
                   )}
                 </div>
               </div>

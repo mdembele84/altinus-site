@@ -216,7 +216,7 @@ export const AltinusLanding = () => {
                 {/* LOGO CLOUDINARY HERO (Petit) */}
                 <img src={LOGO_URL} alt="Logo" className="w-6 h-6 object-contain" />
                 <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-amber-500 font-bold">
-                Investment Club • 2025
+                Investment Club • 2026
                 </p>
             </motion.div>
             
@@ -261,7 +261,7 @@ export const AltinusLanding = () => {
       <div className="border-b border-white/10 bg-zinc-900 overflow-hidden py-4">
         <div className="flex justify-around items-center text-xs md:text-sm tracking-widest uppercase font-mono text-zinc-500">
           <span>• Ticket: 20k€</span>
-          <span className="text-amber-400 font-bold">• Cible: 24% / An</span>
+          <span className="text-amber-400 font-bold">• Cible: 15% / An</span>
           <span>• Modèle: B2B Wholesale</span>
           <span className="hidden md:inline">• Sans Spéculation</span>
         </div>
@@ -294,7 +294,7 @@ export const AltinusLanding = () => {
           <motion.div variants={fadeInUp} className="bg-gradient-to-br from-amber-500 to-amber-700 text-black p-10 rounded-sm flex flex-col justify-between shadow-lg">
             <div>
               <div className="flex items-center gap-2 mb-2 font-bold uppercase tracking-widest text-xs opacity-70">Performance Cible</div>
-              <div className="text-6xl font-bold tracking-tighter">24%</div>
+              <div className="text-6xl font-bold tracking-tighter">15%</div>
               <div className="text-sm mt-1 font-medium opacity-80">Plafond annuel (ADP)</div>
             </div>
             <div className="mt-8 text-sm leading-tight border-t border-black/10 pt-4 font-medium">
@@ -389,7 +389,7 @@ export const AltinusLanding = () => {
           </div>
 
           <div className="text-zinc-600 text-xs uppercase tracking-widest flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-8">
-            <p>© 2025 ALTINUS.CLUB</p>
+            <p>© 2026 ALTINUS.CLUB</p>
             <p className="mt-2 md:mt-0">Basé en France • Normes Internationales</p>
           </div>
         </div>

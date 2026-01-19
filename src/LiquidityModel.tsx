@@ -102,7 +102,7 @@ const LiquidityModel = () => {
           className="bg-zinc-100 text-black rounded p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 shadow-2xl"
         >
           <div className="flex-1">
-            <h3 className="text-2xl font-bold mb-4">Pourquoi ça rapporte 24% ?</h3>
+            <h3 className="text-2xl font-bold mb-4">Pourquoi ça rapporte 15% ?</h3>
             <p className="text-zinc-700 mb-4">
               La clé n'est pas le taux d'une opération unique, mais la <strong>vélocité</strong>.
             </p>
