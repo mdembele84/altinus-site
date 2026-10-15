@@ -11,7 +11,6 @@ const LiquidityModel = () => {
       desc: "En Afrique, les opérateurs de transfert d'argent font face à une demande explosive mais manquent de liquidité immédiate (fonds de roulement) pour exécuter tous les ordres instantanément."
     },
     {
-      // Changement ici : emerald -> amber
       icon: <Banknote className="w-8 h-8 text-amber-400" />,
       title: "2. L'Apport Altinus",
       subtitle: "Fournisseur de Liquidité",
@@ -40,7 +39,6 @@ const LiquidityModel = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Changement ici : emerald -> amber */}
           <span className="text-amber-500 font-mono text-sm tracking-widest uppercase mb-4 block">Mécanique de Performance</span>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">
             L'ARGENT QUI <br />
@@ -74,7 +72,6 @@ const LiquidityModel = () => {
                     {step.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-1">{step.title}</h3>
-                  {/* Changement ici : emerald -> amber */}
                   <h4 className="text-sm uppercase tracking-wider text-amber-500/80 mb-3">{step.subtitle}</h4>
                   <p className="text-zinc-400 text-sm leading-relaxed border-t border-white/5 pt-3">
                     {step.desc}
@@ -102,7 +99,7 @@ const LiquidityModel = () => {
           className="bg-zinc-100 text-black rounded p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 shadow-2xl"
         >
           <div className="flex-1">
-            <h3 className="text-2xl font-bold mb-4">Pourquoi ça rapporte 15% ?</h3>
+            <h3 className="text-2xl font-bold mb-4">Pourquoi un objectif de 15% ?</h3>
             <p className="text-zinc-700 mb-4">
               La clé n'est pas le taux d'une opération unique, mais la <strong>vélocité</strong>.
             </p>
@@ -111,7 +108,6 @@ const LiquidityModel = () => {
             </p>
           </div>
           <div className="flex-shrink-0 bg-white p-6 rounded shadow-sm border border-zinc-200 text-center min-w-[200px]">
-            {/* Changement ici : emerald -> amber */}
             <TrendingUp className="w-10 h-10 mx-auto text-amber-600 mb-2" />
             <div className="text-3xl font-bold tracking-tighter">0%</div>
             <div className="text-xs uppercase font-bold text-zinc-400">Spéculation</div>

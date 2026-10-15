@@ -7,7 +7,7 @@ const ProfitSimulator = () => {
   const durationYears = 5;
 
   // Seuil de négociation
-  const NEGOTIATION_THRESHOLD = 100000;
+  const NEGOTIATION_THRESHOLD = 250000;
   const isNegotiable = investment >= NEGOTIATION_THRESHOLD;
 
   // Calculs financiers
@@ -73,7 +73,7 @@ const ProfitSimulator = () => {
               />
               <div className="flex justify-between text-xs text-zinc-500 mt-2 font-mono">
                 <span>20 000 € (Min)</span>
-                <span className={isNegotiable ? "text-amber-500 font-bold" : ""}>100 000 € (Négociable)</span>
+                <span className={isNegotiable ? "text-amber-500 font-bold" : ""}>250 000 € (Négociable)</span>
                 <span>500 000 € +</span>
               </div>
             </div>
@@ -106,7 +106,7 @@ const ProfitSimulator = () => {
             <div className="mt-8 pt-8 border-t border-white/5">
               <h4 className="flex items-center gap-2 text-sm uppercase tracking-widest text-zinc-300 mb-6">
                 <Calendar className="w-4 h-4 text-amber-500" />
-                Votre calendrier de versements
+                Calendrier prévisionnel de versements
               </h4>
               <div className="space-y-3">
                 {nextPayouts.map((date, idx) => (
@@ -149,12 +149,12 @@ const ProfitSimulator = () => {
                 {isNegotiable ? (
                    <div className="flex items-start gap-3 text-sm text-white font-bold animate-pulse">
                    <Sparkles className="w-5 h-5 text-amber-500 shrink-0" />
-                   <span>Rémunération négociable (+100k€).</span>
+                   <span>Rémunération négociable (+250k€).</span>
                  </div>
                 ) : (
                   <div className="flex items-start gap-3 text-sm text-zinc-500">
                     <Lock className="w-5 h-5 text-zinc-600 shrink-0" />
-                    <span>Taux négociable à partir de 100k€.</span>
+                    <span>Taux négociable à partir de 250k€.</span>
                   </div>
                 )}
               </div>

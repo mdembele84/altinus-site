@@ -29,19 +29,19 @@ const BookingPage = () => {
               <div className="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
                 <Check size={16} />
               </div>
-              [cite_start]<span className="text-sm font-medium">Accessible à partir de 20k€ [cite: 30]</span>
+              <span className="text-sm font-medium">Accessible à partir de 20k€</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
                 <Check size={16} />
               </div>
-              [cite_start]<span className="text-sm font-medium">Modèle sans spéculation [cite: 22]</span>
+              <span className="text-sm font-medium">Modèle sans spéculation</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
                 <Check size={16} />
               </div>
-              [cite_start]<span className="text-sm font-medium">Audit de conformité inclus [cite: 61]</span>
+              <span className="text-sm font-medium">Audit de conformité inclus</span>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@ const BookingPage = () => {
             </div>
             <div>
               <p className="text-xs text-zinc-500">Email</p>
-              [cite_start]<a href="mailto:moussa@altinus.club" className="font-medium hover:text-amber-400 transition-colors">moussa@altinus.club [cite: 7]</a>
+              <a href="mailto:moussa@altinus.club" className="font-medium hover:text-amber-400 transition-colors">moussa@altinus.club</a>
             </div>
           </div>
 
@@ -65,7 +65,7 @@ const BookingPage = () => {
             </div>
             <div>
               <p className="text-xs text-zinc-500">Téléphone / WhatsApp</p>
-              [cite_start]<a href="https://wa.me/33667945061" className="font-medium hover:text-amber-400 transition-colors">+33 6 67 94 50 61 [cite: 6]</a>
+              <a href="https://wa.me/33667945061" className="font-medium hover:text-amber-400 transition-colors">+33 6 67 94 50 61</a>
             </div>
           </div>
 
@@ -85,8 +85,8 @@ const BookingPage = () => {
       <div className="lg:w-7/12 bg-white h-screen flex flex-col p-4 md:p-8">
         <div className="flex-1 w-full">
           <Cal
-            namespace="30min"
-            calLink="altinus/30min"
+            namespace="15min"
+            calLink="altinus/15min"
             style={{ width: '100%', height: '100%', overflow: 'auto' }}
             config={{ layout: 'month_view', theme: 'light', hideEventTypeDetails: 'true' }}
             calOrigin="https://calcom-web-app-production-37c9.up.railway.app"

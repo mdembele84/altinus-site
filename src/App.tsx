@@ -1,81 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ShieldCheck, Globe, ChevronDown, Menu, X, Download, Loader2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, ShieldCheck, Globe, ChevronDown, Menu, X } from 'lucide-react';
 import LiquidityModel from './LiquidityModel';
 import ProfitSimulator from './ProfitSimulator';
 import BookingPage from './BookingPage';
 import InvestorProcess from './InvestorProcess';
 
 // --- CONFIGURATION ---
-// Lien direct vers ton logo sur Cloudinary
-const LOGO_URL = "https://res.cloudinary.com/www-danapay-com/image/upload/v1764220316/Logo_Altinus_hebham.png";
-
-// URL DE TON WEBHOOK N8N (À REMPLACER)
-const N8N_WEBHOOK_URL = "https://TON_INSTANCE_N8N/webhook/lead-download";
+// Logo servi depuis public/
+const LOGO_URL = "/logo.png";
 
 export const AltinusLanding = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  
-  // États du formulaire
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // 1. Envoi des données à n8n
-      await fetch(N8N_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          source: 'Landing Page Download',
-          date: new Date().toISOString()
-        })
-      });
-
-      // 2. Déclenchement du téléchargement du PDF
-      // Note : Si le volume ne marchait pas pour le logo, assure-toi que le PDF est bien
-      // dans public/ressources/ ou héberge-le aussi sur Cloudinary pour être tranquille.
-      const link = document.createElement('a');
-      link.href = '/ressources/Altinus - Executive Summary - V2.pdf';
-      link.download = 'Altinus - Executive Summary - V2.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      setIsSuccess(true);
-      
-      // Fermeture automatique après 3 secondes
-      setTimeout(() => {
-        setIsModalOpen(false);
-        setIsSuccess(false);
-        setFormData({ name: '', email: '', phone: '' });
-      }, 3000);
-
-    } catch (error) {
-      console.error("Erreur lors de l'envoi", error);
-      // Fallback téléchargement
-      const link = document.createElement('a');
-      link.href = '/ressources/Altinus - Executive Summary - V2.pdf';
-      link.download = 'Altinus - Executive Summary - V2.pdf';
-      link.click();
-      setIsModalOpen(false);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   // Animation variants
   const fadeInUp = {
@@ -91,102 +28,10 @@ export const AltinusLanding = () => {
   return (
     <div className="bg-zinc-950 text-white min-h-screen font-sans selection:bg-amber-500 selection:text-black overflow-x-hidden">
       
-      {/* --- MODAL FORMULAIRE --- */}
-      <AnimatePresence>
-        {isModalOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
-            <motion.div 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-              onClick={() => setIsModalOpen(false)}
-            />
-            <motion.div 
-              initial={{ scale: 0.9, opacity: 0 }} 
-              animate={{ scale: 1, opacity: 1 }} 
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative bg-zinc-900 border border-amber-500/30 p-8 rounded-lg max-w-md w-full shadow-[0_0_50px_rgba(245,158,11,0.1)]"
-            >
-              <button onClick={() => setIsModalOpen(false)} className="absolute top-4 right-4 text-zinc-500 hover:text-white">
-                <X size={20} />
-              </button>
-
-              {isSuccess ? (
-                <div className="text-center py-8">
-                  <div className="w-16 h-16 bg-amber-500/20 text-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Download size={32} />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">Téléchargement lancé !</h3>
-                  <p className="text-zinc-400 text-sm">Merci de votre intérêt. Le document va s'ouvrir.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="text-center mb-6">
-                    {/* LOGO CLOUDINARY MODAL */}
-                    <img src={LOGO_URL} alt="Altinus Logo" className="w-16 h-16 mx-auto mb-4 object-contain" />
-                    <h3 className="text-xl font-bold text-white">Accéder à l'Executive Summary</h3>
-                    <p className="text-zinc-400 text-sm mt-2">Veuillez renseigner vos informations pour télécharger la brochure officielle.</p>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-xs uppercase tracking-wider text-zinc-500 mb-1">Nom complet</label>
-                    <input 
-                      required 
-                      type="text" 
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="w-full bg-black border border-zinc-700 rounded p-3 text-white focus:border-amber-500 focus:outline-none transition-colors"
-                      placeholder="Jean Dupont"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-xs uppercase tracking-wider text-zinc-500 mb-1">Email professionnel</label>
-                    <input 
-                      required 
-                      type="email" 
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full bg-black border border-zinc-700 rounded p-3 text-white focus:border-amber-500 focus:outline-none transition-colors"
-                      placeholder="jean@entreprise.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs uppercase tracking-wider text-zinc-500 mb-1">Téléphone</label>
-                    <input 
-                      required 
-                      type="tel" 
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full bg-black border border-zinc-700 rounded p-3 text-white focus:border-amber-500 focus:outline-none transition-colors"
-                      placeholder="+33 6 ..."
-                    />
-                  </div>
-
-                  <button 
-                    disabled={isSubmitting}
-                    type="submit" 
-                    className="w-full bg-amber-500 text-black font-bold py-4 rounded hover:bg-amber-400 transition-colors flex items-center justify-center gap-2 mt-4"
-                  >
-                    {isSubmitting ? <Loader2 className="animate-spin" /> : 'Accéder au document'}
-                  </button>
-                  <p className="text-[10px] text-center text-zinc-600">Vos données restent confidentielles.</p>
-                </form>
-              )}
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
-
       {/* --- NAVIGATION --- */}
       <nav className="fixed top-0 w-full z-50 px-6 py-6 flex justify-between items-center border-b border-white/5 bg-zinc-950/80 backdrop-blur-md">
         <div className="flex items-center gap-3">
-            {/* LOGO CLOUDINARY NAV */}
+            {/* LOGO NAV */}
             <img src={LOGO_URL} alt="Altinus Logo" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
             <div className="text-xl md:text-2xl font-bold tracking-tighter uppercase">
               Altinus<span className="text-amber-500">.Club</span>
@@ -213,7 +58,7 @@ export const AltinusLanding = () => {
         <div className="z-10 max-w-5xl w-full text-center md:text-left">
           <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="space-y-6">
             <motion.div variants={fadeInUp} className="flex items-center justify-center md:justify-start gap-2">
-                {/* LOGO CLOUDINARY HERO (Petit) */}
+                {/* LOGO HERO (Petit) */}
                 <img src={LOGO_URL} alt="Logo" className="w-6 h-6 object-contain" />
                 <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-amber-500 font-bold">
                 Investment Club • 2026
@@ -236,14 +81,6 @@ export const AltinusLanding = () => {
                 Devenir Membre
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
-              
-              <button 
-                onClick={() => setIsModalOpen(true)}
-                className="group px-8 py-4 border border-white/20 hover:border-amber-500/50 hover:text-amber-400 transition-all flex items-center justify-center rounded-sm gap-2"
-              >
-                <Download className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <span>Télécharger la Brochure</span>
-              </button>
             </motion.div>
           </motion.div>
         </div>
@@ -326,7 +163,7 @@ export const AltinusLanding = () => {
             <div className="flex-1 bg-black w-full h-32 rounded border border-zinc-800 flex items-center justify-center relative overflow-hidden">
                <div className="absolute inset-x-4 top-4 h-1 bg-zinc-800 rounded"></div>
                <div className="absolute inset-x-4 top-8 h-1 w-2/3 bg-zinc-800 rounded"></div>
-               <div className="absolute right-4 bottom-4 text-amber-500 text-xs font-mono">+6.0% Ce trimestre</div>
+               <div className="absolute right-4 bottom-4 text-amber-500 text-xs font-mono">+3.75% Ce trimestre</div>
             </div>
           </motion.div>
         </motion.div>
@@ -372,7 +209,7 @@ export const AltinusLanding = () => {
 
       <footer id="contact" className="bg-zinc-950 pt-24 pb-12 px-6 border-t border-white/10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* LOGO CLOUDINARY FOOTER */}
+          {/* LOGO FOOTER */}
           <img src={LOGO_URL} alt="Altinus Logo" className="w-20 h-20 mx-auto mb-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 object-contain" />
           <h2 className="text-3xl md:text-5xl font-bold mb-8">Prêt à investir autrement ?</h2>
           <p className="text-zinc-400 mb-12 max-w-xl mx-auto">
