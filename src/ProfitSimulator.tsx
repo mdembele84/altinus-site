@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Calendar, ArrowRight, CheckCircle2, Sparkles, Lock } from 'lucide-react';
 
 const ProfitSimulator = () => {
-  const [investment, setInvestment] = useState(20000);
+  const [investment, setInvestment] = useState(100000);
   const annualRate = 0.15; // 15% cible
   const durationYears = 5;
 
@@ -64,7 +64,7 @@ const ProfitSimulator = () => {
               
               <input
                 type="range"
-                min="20000"
+                min="100000"
                 max="500000"
                 step="5000"
                 value={investment}
@@ -72,7 +72,7 @@ const ProfitSimulator = () => {
                 className={`w-full h-2 rounded-lg appearance-none cursor-pointer transition-all ${isNegotiable ? 'bg-amber-900/40 accent-amber-400' : 'bg-zinc-800 accent-zinc-500'}`}
               />
               <div className="flex justify-between text-xs text-zinc-500 mt-2 font-mono">
-                <span>20 000 € (Min)</span>
+                <span>100 000 € (Min)</span>
                 <span className={isNegotiable ? "text-amber-500 font-bold" : ""}>250 000 € (Négociable)</span>
                 <span>500 000 € +</span>
               </div>

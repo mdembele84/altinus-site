@@ -97,7 +97,7 @@ export const AltinusLanding = () => {
       {/* --- TICKER --- */}
       <div className="border-b border-white/10 bg-zinc-900 overflow-hidden py-4">
         <div className="flex justify-around items-center text-xs md:text-sm tracking-widest uppercase font-mono text-zinc-500">
-          <span>• Ticket: 20k€</span>
+          <span>• Ticket: 100k€</span>
           <span className="text-amber-400 font-bold">• Cible: 15% / An</span>
           <span>• Modèle: B2B Wholesale</span>
           <span className="hidden md:inline">• Sans Spéculation</span>

@@ -29,7 +29,7 @@ const BookingPage = () => {
               <div className="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
                 <Check size={16} />
               </div>
-              <span className="text-sm font-medium">Accessible à partir de 20k€</span>
+              <span className="text-sm font-medium">Accessible à partir de 100k€</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
