@@ -225,8 +225,8 @@ export const AltinusLanding = () => {
             <a href="https://wa.me/33667945061" className="bg-amber-500 text-black px-8 py-4 font-bold hover:bg-amber-400 transition-colors rounded-sm shadow-[0_0_20px_rgba(245,158,11,0.3)]">
               Écrire sur WhatsApp
             </a>
-            <a href="mailto:moussa@altinus.club" className="border border-white/20 text-white px-8 py-4 font-bold hover:bg-white/10 transition-colors flex items-center justify-center gap-2 rounded-sm">
-              moussa@altinus.club
+            <a href="mailto:contact@altinus.club" className="border border-white/20 text-white px-8 py-4 font-bold hover:bg-white/10 transition-colors flex items-center justify-center gap-2 rounded-sm">
+              contact@altinus.club
             </a>
           </div>
 
