@@ -182,7 +182,7 @@ const InvestorProcess = () => {
       <section className="py-24 px-6 text-center">
         <h2 className="text-3xl font-bold mb-6">Prêt à investir dans l'économie réelle ?</h2>
         <div className="flex flex-col md:flex-row justify-center gap-4">
-          <Link to="/rendez-vous" className="bg-amber-500 text-black px-8 py-4 font-bold rounded hover:bg-amber-400 transition-colors">
+          <Link to="/#contact" className="bg-amber-500 text-black px-8 py-4 font-bold rounded hover:bg-amber-400 transition-colors">
             Devenir Investisseur
           </Link>
           <Link to="/" className="border border-white/20 px-8 py-4 font-bold rounded hover:bg-white/10 transition-colors">
